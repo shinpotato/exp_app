@@ -1,5 +1,6 @@
 <% @user.items.each do |item| %>
   <p><%= item.language %>：<%= item.keyword %>：<%= item.exp_category %></p>
   <p><%= item.exp_detail %></p>
+  <p><%= link_to "削除する", item_path(item), method: :delete, data: {confirm:"削除しますか？"} %></p>
   <p><%= link_to "編集する", edit_item_path(item), method: :get %></p>
 <% end %>

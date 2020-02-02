@@ -2,7 +2,13 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @items = Item.all
+    @items = Item.all.order(created_at: :desc)
+    #スマートではないが動く
+    @lang_hash = {
+                  "git" => "Git", "ruby" => "Ruby", "rails" => "Rails",
+                  "aws" => "AWS", "php" => "PHP",
+                  "info" => "情報発信", "writing" => "ライティング講座",
+    }
   end
 
   def new
@@ -11,6 +17,15 @@ class ItemsController < ApplicationController
 
   def create
     Item.create(language: item_params[:language], keyword: item_params[:keyword], exp_category: item_params[:exp_category], exp_detail: item_params[:exp_detail], user_id: current_user.id)
+    flash[:notice] = "投稿完了"
+    redirect_to(items_path)
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    flash[:notice] = "削除完了"
+    redirect_to(items_path)
   end
 
   def edit
@@ -20,6 +35,8 @@ class ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])
     item.update(item_params)
+    flash[:notice] = "編集完了"
+    redirect_to(items_path)
   end
 
   def move_to_index
