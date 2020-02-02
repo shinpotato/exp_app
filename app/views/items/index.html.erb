@@ -1,12 +1,44 @@
 <h2><%= flash[:notice] %></h2>
 
-<h1>投稿一覧</h1>
 <% if user_signed_in? %>
-  <% @items.each do |item| %>
-    <p><%= item.user.nickname.present? ? "投稿者　#{item.user.nickname}" : "会員No.#{item.user.id}" %>
-    <p><%= @lang_hash[item.language] %>：<%= item.keyword %>：<%= @exp_categ_hash[item.exp_category] %></p>
-    <p><%= item.exp_detail %></p>
-  <% end %>
+    <h1>投稿一覧</h1>
+    <!-- フィルタリングを行うための検索窓 -->
+    <input class="form-control" id="myInput" type="text" placeholder="検索">
+
+    <!-- テーブル -->
+    <table class="table table-striped">
+      <thead class="bg-danger text-white">
+        <tr>
+          <th>投稿者</th>
+          <th>ジャンル</th>
+          <th>キーワード</th>
+          <th>カテゴリー</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody id="myTable">
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.user.nickname.present? ? "#{item.user.nickname}" : "会員No.#{item.user.id}" %></td>
+            <td><%= @lang_hash[item.language] %></td>
+            <td><%= item.keyword %></td>
+            <td><%= @exp_categ_hash[item.exp_category] %></td>
+            <td><%= item.exp_detail %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 <% else %>
-  <p>ログインしてください</p>
+    <p>ログインしてください</p>
 <% end %>
+
+<script>
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
