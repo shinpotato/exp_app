@@ -1,0 +1,9 @@
+<%= form_for @item, method: :post do |f| %>
+  <h1>学習体験の情報を入力</h1>
+  <p>言語：<%= f.text_field :language %></p>
+  <p>キーワード：<%= f.text_field :keyword %></p>
+  <p>体験カテゴリー：<%= f.text_field :exp_category %></p>
+  <p>体験内容：<%= f.text_area :exp_detail %></p>
+
+  <input type="submit" value="SENT">
+<% end %>

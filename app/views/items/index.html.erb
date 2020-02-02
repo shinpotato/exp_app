@@ -1,0 +1,10 @@
+<h1>投稿一覧</h1>
+<% if user_signed_in? %>
+  <% @items.each do |item| %>
+    <p><%= item.user.nickname.present? ? "投稿者　#{item.user.nickname}" : "会員No.#{item.user.id}" %>
+    <p><%= item.language %>：<%= item.keyword %>：<%= item.exp_category %></p>
+    <p><%= item.exp_detail %></p>
+  <% end %>
+<% else %>
+  <p>ログインしてください</p>
+<% end %>

@@ -1,0 +1,4 @@
+<% @user.items.each do |item| %>
+  <p><%= item.language %>：<%= item.keyword %>：<%= item.exp_category %></p>
+  <p><%= item.exp_detail %></p>
+<% end %>
