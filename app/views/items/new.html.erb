@@ -1,11 +1,9 @@
 <%= form_for @item, method: :post do |f| %>
   <h1>学習体験の情報を入力</h1>
-  <!--<p>言語：<%= f.text_field :language %></p>-->
   <p>ジャンル：
     <%= f.select :language, [["Git","git"], ["Ruby","ruby"], ["Rails","rails"], ["AWS","aws"], ["PHP","php"], ["情報発信","info"], ["ライティング講座","writing"]], :prompt => "選択してください" %>
   </p>
   <p>キーワード：<%= f.text_field :keyword %></p>
-  <!--<p>体験カテゴリー：<%= f.text_field :exp_category %></p>-->
   <p>体験カテゴリー：
     <%= f.select :exp_category, [["気付き","finding"], ["疑問","question"], ["解決","solution"]], :prompt => "選択してください" %>
   </p>

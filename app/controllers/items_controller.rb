@@ -9,6 +9,11 @@ class ItemsController < ApplicationController
                   "aws" => "AWS", "php" => "PHP",
                   "info" => "情報発信", "writing" => "ライティング講座",
     }
+    @exp_categ_hash = {
+                  "finding" => "気付き",
+                  "question" => "疑問",
+                  "solution" => "解決",
+    }
   end
 
   def new
@@ -16,9 +21,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(language: item_params[:language], keyword: item_params[:keyword], exp_category: item_params[:exp_category], exp_detail: item_params[:exp_detail], user_id: current_user.id)
-    flash[:notice] = "投稿完了"
-    redirect_to(items_path)
+    @item = Item.new(language: item_params[:language], keyword: item_params[:keyword], exp_category: item_params[:exp_category], exp_detail: item_params[:exp_detail], user_id: current_user.id)
+    @item.save
+    if @item.save
+      flash[:notice] = "投稿完了"
+      redirect_to(items_path)
+    else
+      render("items/new")
+    end
   end
 
   def destroy
@@ -33,10 +43,14 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_params)
-    flash[:notice] = "編集完了"
-    redirect_to(items_path)
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    if @item.update(item_params)
+      flash[:notice] = "編集完了"
+      redirect_to(items_path)
+    else
+      render("items/edit")
+    end
   end
 
   def move_to_index
