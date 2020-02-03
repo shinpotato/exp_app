@@ -1,7 +1,7 @@
 <h2><%= flash[:notice] %></h2>
 
 <% if user_signed_in? %>
-    <h1>投稿一覧</h1>
+    <h1 class="text-secondary">投稿一覧</h1>
     <!-- フィルタリングを行うための検索窓 -->
     <input class="form-control" id="myInput" type="text" placeholder="検索">
 
@@ -29,7 +29,7 @@
       </tbody>
     </table>
 <% else %>
-    <p>ログインしてください</p>
+    <h1 class="text-secondary">ログインしてください</h1>
 <% end %>
 
 <script>

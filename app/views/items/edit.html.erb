@@ -1,5 +1,5 @@
 <%= form_for @item, url: item_path(@item), html: {method: :patch} do |f| %>
-  <h1>学習体験の情報を更新</h1>
+  <h1 class="text-secondary">学習体験の情報を更新</h1>
   <p>ジャンル：
     <%= f.select :language, [["Git","git"], ["Ruby","ruby"], ["Rails","rails"], ["AWS","aws"], ["PHP","php"], ["情報発信","info"], ["ライティング講座","writing"]] %>
   </p>
