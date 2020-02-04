@@ -1,7 +1,5 @@
-<h2><%= flash[:notice] %></h2>
-
 <% if user_signed_in? %>
-    <h1 class="text-secondary">投稿一覧</h1>
+    <h1 class="text-secondary">投稿一覧<span class="flash-notice font-Large"><%= flash[:notice] %></span></h1>
     <!-- フィルタリングを行うための検索窓 -->
     <input class="form-control" id="myInput" type="text" placeholder="検索">
 
@@ -9,10 +7,10 @@
     <table class="table table-striped">
       <thead class="bg-danger text-white">
         <tr>
-          <th>投稿者</th>
-          <th>ジャンル</th>
-          <th>キーワード</th>
-          <th>カテゴリー</th>
+          <th class="text-nowrap">投稿者</th>
+          <th class="text-nowrap">ジャンル</th>
+          <th class="text-nowrap">キーワード</th>
+          <th class="text-nowrap">カテゴリー</th>
           <th>内容</th>
         </tr>
       </thead>
@@ -29,7 +27,7 @@
       </tbody>
     </table>
 <% else %>
-    <h1 class="text-secondary">ログインしてください</h1>
+    <h1 class="text-secondary">ログインまたは新規登録してください</h1>
 <% end %>
 
 <script>

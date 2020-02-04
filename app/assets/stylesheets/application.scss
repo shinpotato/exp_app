@@ -11,3 +11,29 @@
 h1 {
   padding: 20px 0 20px 30px;
 }
+
+p {
+  font-size: 1.2rem;
+}
+
+.form-container {
+  margin: 0 30px;
+}
+
+.flash-notice {
+  margin-left: 50px;
+}
+
+.btn-wide {
+  padding: 0 50px;
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+.field_with_errors {
+  input {
+    @extend .is-invalid;
+  }
+}

@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     @item = Item.new(language: item_params[:language], keyword: item_params[:keyword], exp_category: item_params[:exp_category], exp_detail: item_params[:exp_detail], user_id: current_user.id)
     @item.save
     if @item.save
-      flash[:notice] = "投稿完了"
+      flash[:notice] = "＜＜投稿完了"
       redirect_to(items_path)
     else
       render("items/new")
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    flash[:notice] = "削除完了"
+    flash[:notice] = "＜＜削除完了"
     redirect_to(items_path)
   end
 
@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
     if @item.update(item_params)
-      flash[:notice] = "編集完了"
+      flash[:notice] = "＜＜編集完了"
       redirect_to(items_path)
     else
       render("items/edit")

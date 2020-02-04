@@ -6,10 +6,10 @@
 <table class="table table-striped">
   <thead class="bg-danger text-white">
     <tr>
-      <th>投稿者</th>
-      <th>ジャンル</th>
-      <th>キーワード</th>
-      <th>カテゴリー</th>
+      <th class="text-nowrap">投稿者</th>
+      <th class="text-nowrap">ジャンル</th>
+      <th class="text-nowrap">キーワード</th>
+      <th class="text-nowrap">カテゴリー</th>
       <th>内容</th>
       <th></th>
       <th></th>
@@ -23,8 +23,8 @@
         <td><%= item.keyword %></td>
         <td><%= @exp_categ_hash[item.exp_category] %></td>
         <td><%= item.exp_detail %></td>
-        <td><%= link_to "削除", item_path(item), method: :delete, data: {confirm:"削除しますか？"} %></td>
-        <td><%= link_to "編集", edit_item_path(item), method: :get %></td>
+        <td class="text-nowrap"><%= link_to "削除", item_path(item), method: :delete, data: {confirm:"削除しますか？"} %></td>
+        <td class="text-nowrap"><%= link_to "編集", edit_item_path(item), method: :get %></td>
       </tr>
     <% end %>
   </tbody>
