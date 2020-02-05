@@ -18,11 +18,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-
-    @article = {
-                body: "# 見出し"
-    }
-
   end
 
   def create
@@ -33,6 +28,7 @@ class ItemsController < ApplicationController
       flash[:notice] = "＜＜投稿完了"
       redirect_to(items_path)
     else
+      @empty_error_message = "全ての欄に入力してください"
       render("items/new")
     end
   end
@@ -55,6 +51,7 @@ class ItemsController < ApplicationController
       flash[:notice] = "＜＜編集完了"
       redirect_to(items_path)
     else
+      @empty_error_message = "全ての欄に入力してください"
       render("items/edit")
     end
   end

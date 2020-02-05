@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <h1 class="text-secondary">投稿一覧<span class="flash-notice font-Large"><%= flash[:notice] %></span></h1>
+    <h1 class="text-secondary pad-l pad-tb">投稿一覧<span class="flash-notice font-Large"><%= flash[:notice] %></span></h1>
     <!-- フィルタリングを行うための検索窓 -->
     <input class="form-control" id="myInput" type="text" placeholder="検索">
 
@@ -27,8 +27,8 @@
       </tbody>
     </table>
 <% else %>
-    <h1 class="text-secondary">ログインまたは新規登録してください</h1>
-    <h2 class="text-secondary">(ご自由に適当なアカウントをお作りください)</h2>
+    <h1 class="text-secondary pad-l pad-tb">ログインまたは新規登録してください</h1>
+    <h2 class="text-secondary pad-l pad-tb">(ご自由に適当なアカウントをお作りください)</h2>
 <% end %>
 
 <script>
