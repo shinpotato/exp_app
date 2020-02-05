@@ -1,5 +1,7 @@
 @import "bootstrap";
 
+@import 'rouge';
+
 .font-large {
   font-size: 1.4rem;
 }
@@ -20,8 +22,29 @@ p {
   font-size: 1.2rem;
 }
 
+.edit-container {
+  margin: 0 2%;
+  display: flex;
+}
+
 .form-container {
-  margin: 0 30px;
+  width: 38%;
+  //flex: auto;
+}
+
+.normal_form {
+  width: 90%;
+  height: 150px;
+}
+
+.large_form {
+  width: 90%;
+  height: 400px
+}
+
+.preview-container {
+  width: 58%;
+  //flex: auto;
 }
 
 .flash-notice {
@@ -29,7 +52,8 @@ p {
 }
 
 .btn-wide {
-  padding: 0 50px;
+  padding: 0 20%;
+  margin: 0 15% 30px 15%;
 }
 
 .text-nowrap {

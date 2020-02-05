@@ -18,11 +18,17 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+
+    @article = {
+                body: "# 見出し"
+    }
+
   end
 
   def create
-    @item = Item.new(language: item_params[:language], keyword: item_params[:keyword], exp_category: item_params[:exp_category], exp_detail: item_params[:exp_detail], user_id: current_user.id)
+    @item = Item.new(language: item_params[:language], keyword: item_params[:keyword], exp_category: item_params[:exp_category], exp_detail: item_params[:exp_detail], body: item_params[:body], user_id: current_user.id)
     @item.save
+
     if @item.save
       flash[:notice] = "＜＜投稿完了"
       redirect_to(items_path)
@@ -61,7 +67,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:language, :keyword, :exp_category, :exp_detail)
+    params.require(:item).permit(:language, :keyword, :exp_category, :exp_detail, :body)
   end
 
 end

@@ -1,14 +1,20 @@
 <%= form_for @item, method: :post do |f| %>
   <h1 class="text-secondary">学習体験の情報を入力</h1>
-  <div class="form-container">
-    <p>ジャンル：
-      <%= f.select :language, [["Git","git"], ["Ruby","ruby"], ["Rails","rails"], ["AWS","aws"], ["PHP","php"], ["情報発信","info"], ["ライティング講座","writing"]], :prompt => "選択してください" %>
-    </p>
-    <p>キーワード：<%= f.text_field :keyword %></p>
-    <p>体験カテゴリー：
-      <%= f.select :exp_category, [["気付き","finding"], ["疑問","question"], ["解決","solution"]], :prompt => "選択してください" %>
-    </p>
-    <p>体験内容：</p><p><%= f.text_area :exp_detail, :size=>"40x7" %></p>
-    <input type="submit" value="送信" class="btn btn-outline-danger btn-wide font-large">
+  <div class="edit-container">
+    <div class="form-container">
+        <p>ジャンル：
+          <%= f.select :language, [["Git","git"], ["Ruby","ruby"], ["Rails","rails"], ["AWS","aws"], ["PHP","php"], ["情報発信","info"], ["ライティング講座","writing"]], :prompt => "選択してください" %>
+        </p>
+        <p>キーワード：<%= f.text_field :keyword %></p>
+        <p>体験カテゴリー：
+          <%= f.select :exp_category, [["気付き","finding"], ["疑問","question"], ["解決","solution"]], :prompt => "選択してください" %>
+        </p>
+        <p>体験概要：</p><p><%= f.text_area :exp_detail, class: "normal_form" %></p>
+        <p>体験内容詳細：</p><p><%= f.text_area :body, class: "large_form" %></p>
+        <input type="submit" value="送信" class="btn btn-outline-danger btn-wide font-large">
+    </div>
+    <div class="preview-container">
+
+    </div>
   </div>
 <% end %>

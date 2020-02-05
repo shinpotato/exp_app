@@ -39,8 +39,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # markdown
 gem 'redcarpet', '~> 2.3.0'
-# シンタックスハイライト
+# シンタックスハイライト1
 gem 'coderay'
+
+# シンタックスハイライト2
+gem 'rouge'
+
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
